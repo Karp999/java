@@ -20,7 +20,7 @@ public class dz1 {
         int n = mostSignificantBit(i);
         System.out.println("Номер старшего значащего бита выпавшего числа i равен n = " + n);
         firstArray(i, n);
-//        secondArray();
+        secondArray(i, n);
     }
 
     static int randNum() {
@@ -48,15 +48,22 @@ public class dz1 {
         System.out.println("Массив кратных n чисел в диапазоне от i до константы Short.MAX_VALUE = 32767 равен: \n"+ Arrays.toString(m1));
     } // решение задачи 3
 
-//
-//    static void secondArray() {
-//        System.out.println("Массив кратных n чисел в диапазоне от i до константы Short.MIN_VALUE );
-//    }
-//
+    static void secondArray(int i, int n) {
+        int min = Short.MIN_VALUE;
+        int[] m2 = new int[0];
+        while (min <= i){
+            if (min % n != 0){
+                int[] temp = new int[m2.length + 1];
+                for (int g = 0; g < m2.length; g++){
+                    temp[g] = m2[g];
+                }
+                m2 = temp;
+                m2[m2.length - 1] = min;
+            }
+            min++;
+        }
+        System.out.println("Массив кратных n чисел в диапазоне от i до константы Short.MIN_VALUE = -32767 равен: \n"+ Arrays.toString(m2));
 
-
-
-
+    }
 }
-
 
