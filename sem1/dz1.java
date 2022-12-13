@@ -64,6 +64,6 @@ public class dz1 {
         }
         System.out.println("Массив кратных n чисел в диапазоне от i до константы Short.MIN_VALUE = -32767 равен: \n"+ Arrays.toString(m2));
 
-    }
+    } // решение задачи 4
 }
 
