@@ -6,11 +6,13 @@ import java.util.Random;
 public class dz2 {
     public static void main(String[] args) {
 
+
+
         findInputStr();
         reverseInput();
 //        reverseStr();
 //        strComposition();
-//        replCharSB();
+        replCharSB();
 //        replCharAsterisk();
 //        compareTime();
     }
@@ -45,23 +47,28 @@ public class dz2 {
 /* 3. *Напишите программу, чтобы перевернуть строку с помощью рекурсии.*/
     static void reverseStr(){
 
-
     };
 
-
 /* 4. Дано два числа, например 3 и 56, необходимо составить следующие строки:
-    3 + 56 = 59
-    3 – 56 = -53
-    3 * 56 = 168
+3 + 56 = 59
+3 – 56 = -53
+3 * 56 = 168
 Используем метод StringBuilder.append().*/
     static void strComposition(){
 
     };
+
 /* 5. Замените символ “=” на слово “равно”.
 Используйте методы StringBuilder.insert(),StringBuilder.deleteCharAt().*/
     static void replCharSB(){
-
+        StringBuilder str = new StringBuilder();
+        str.append("2 + 2 = 4");
+        System.out.println("\nСтрока, в которой необходимо заменить символ '=' на слово 'равно': "+str);
+        str.deleteCharAt(6); //удалила символ '='
+        str.insert(6," равно "); //вставила по индексу удалённого символа '=' слово 'равно'
+        System.out.println("Замена символа '=' на слово 'равно': "+str);
     };
+
 /* 6. *Замените символ “=” на слово “равно”. Используйте метод StringBuilder.replace().*/
     static void replCharAsterisk(){
 
