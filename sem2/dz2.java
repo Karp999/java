@@ -80,7 +80,29 @@ public class dz2 {
 /* 7. **Сравнить время выполнения пункта 6 со строкой содержащей 10000 символов "="
 средствами String и StringBuilder.
 */
+/* НАПЕЧАТАЛА ПОДГОТОВКУ К СРАВНЕНИЮ С СЕМИНАРА:
+
     static void compareTime(){
+        String s = "";
+        long st = System.currentTimeMillis();
+        for (int j = 0; j < 1000; j++) {
+            s += Character.getName(j);
+        }
+        long end = System.currentTimeMillis();
+        System.out.println(end-st);
+
+
+        //
+
+        StringBuilder sb = new StringBuilder();
+        st = System.currentTimeMillis();
+        for (int j = 0; j < 1000; j++) {
+            sb.append(Character.getName(j));
+        }
+        end = System.currentTimeMillis();
+        System.out.println(end-st);
+*/
+
 
     };
 
