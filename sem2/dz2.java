@@ -13,7 +13,7 @@ public class dz2 {
 //        reverseStr();
 //        strComposition();
         replCharSB();
-//        replCharAsterisk();
+        replCharAsterisk();
 //        compareTime();
     }
 
@@ -65,13 +65,17 @@ public class dz2 {
         str.append("2 + 2 = 4");
         System.out.println("\nСтрока, в которой необходимо заменить символ '=' на слово 'равно': "+str);
         str.deleteCharAt(6); //удалила символ '='
-        str.insert(6," равно "); //вставила по индексу удалённого символа '=' слово 'равно'
+        str.insert(6,"равно"); //вставила по индексу удалённого символа '=' слово 'равно'
         System.out.println("Замена символа '=' на слово 'равно': "+str);
     };
 
 /* 6. *Замените символ “=” на слово “равно”. Используйте метод StringBuilder.replace().*/
     static void replCharAsterisk(){
-
+        StringBuilder str = new StringBuilder();
+        str.append("2 + 2 = 4");
+        System.out.println("\nСтрока, в которой необходимо заменить символ '=' на слово 'равно': "+str);
+        str.replace(6,7,"равно");
+        System.out.println("Замена символа '=' на слово 'равно': "+str);
     };
 /* 7. **Сравнить время выполнения пункта 6 со строкой содержащей 10000 символов "="
 средствами String и StringBuilder.
