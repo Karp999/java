@@ -5,16 +5,13 @@ import java.util.Random;
 
 public class dz2 {
     public static void main(String[] args) {
-
-
-
         findInputStr();
         reverseInput();
 //        reverseStr();
 //        strComposition();
         replCharSB();
         replCharAsterisk();
-//        compareTime();
+        compareTime();
     }
 
 /* 1. Напишите программу, чтобы найти вхождение в строке (содержащей все символы другой строки).*/
@@ -22,7 +19,7 @@ public class dz2 {
         String str1 = "В Каргополе белые ночи прекрасны!";
         String str2 = "белые ночи";
         int result1 = str1.indexOf(str2);
-        System.out.println("Индекс вхождения строки -> " + result1);
+        System.out.println("\nИндекс вхождения строки -> " + result1);
         //если строка не входит в другую, выводится ошибка: "-1", это вшито в indexOf()
     };
 
@@ -80,30 +77,61 @@ public class dz2 {
 /* 7. **Сравнить время выполнения пункта 6 со строкой содержащей 10000 символов "="
 средствами String и StringBuilder.
 */
-/* НАПЕЧАТАЛА ПОДГОТОВКУ К СРАВНЕНИЮ С СЕМИНАРА:
-
     static void compareTime(){
-        String s = "";
-        long st = System.currentTimeMillis();
-        for (int j = 0; j < 1000; j++) {
-            s += Character.getName(j);
-        }
+
+        System.out.println("\nSTR1: ");
+        String str1 = "";
+        long start = System.currentTimeMillis();
+        for (int g = 0; g < 10000; g++) {
+            str1 += "=";
+        };
+        System.out.println(str1);
         long end = System.currentTimeMillis();
-        System.out.println(end-st);
+        long res1 = end-start;
+        System.out.println("Время выполнения строки 1, содержащей 10000 символов \"=\" классом String: "+ res1);
 
-
-        //
-
-        StringBuilder sb = new StringBuilder();
-        st = System.currentTimeMillis();
-        for (int j = 0; j < 1000; j++) {
-            sb.append(Character.getName(j));
+        System.out.println("\nSTR2 :");
+        StringBuilder str2 = new StringBuilder();
+        start = System.currentTimeMillis();
+        for (int g = 0; g < 10000; g++) {
+            str2.append("=");
         }
+        System.out.println(str2);
         end = System.currentTimeMillis();
-        System.out.println(end-st);
-*/
+        long res2 = end-start;
+        System.out.println("Время выполнения строки 2, содержащей 10000 символов \"=\" классом StringBuilder: "+ res2);
+
+        System.out.println("\nSTR3: ");
+        String str3 = "2 + 2 = 4";
+        start = System.currentTimeMillis();
+        str3 = str3.replaceAll("=","равно");
+        System.out.println("Замена символа '=' на слово 'равно': "+ str3);
+        end = System.currentTimeMillis();
+        long res3 = end-start;
+        System.out.println("Время выполнения строки 3, содержащей 10000 символов \"=\" классом String: "+ res3);
 
 
+        System.out.println("\nSTR4: ");
+        StringBuilder str4 = new StringBuilder();
+        start = System.currentTimeMillis();
+        str4.append("2 + 2 = 4");
+        System.out.println("Строка, в которой необходимо заменить символ '=' на слово 'равно': "+ str4);
+        str4.replace(6,7,"равно");
+        System.out.println("Замена символа '=' на слово 'равно': "+ str4);
+        end = System.currentTimeMillis();
+        long res4 = end-start;
+        System.out.println("Время выполнения строки 4, в которой необходимо заменить символ “=” на слово “равно”, используя метод StringBuilder.replace(): "+ res4);
+        /* У меня вышло в IDEA:
+        STR1: 22
+        STR2: 0
+        STR3: 0
+        STR4: 0
+
+        В VS Code:
+        STR1: 38
+        STR2: 8
+        STR3: 4
+        STR4: 1
+        * */
     };
-
 }
