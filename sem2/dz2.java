@@ -2,13 +2,13 @@ package sem2;
 
 import java.util.Arrays;
 import java.util.Random;
+import java.util.Scanner;
 
 public class dz2 {
     public static void main(String[] args) {
         findInputStr();
         reverseInput();
-//        reverseStr();
-//        strComposition();
+        strComposition();
         replCharSB();
         replCharAsterisk();
         compareTime();
@@ -42,9 +42,19 @@ public class dz2 {
     };
 
 /* 3. *Напишите программу, чтобы перевернуть строку с помощью рекурсии.*/
-    static void reverseStr(){
-
-    };
+//    static String reverseStr(String str, int lengthS){
+//        str = "партиципаторный";
+//        int lengths = str.length();
+//        System.out.println(str);
+//
+//        if (lengthS == 0){
+//            return str.charAt(lengthS) + "";
+//        }
+//        else {
+//            return (str.charAt(lengthS) + reverseStr(str, lengthS - 1));
+//            str = reverseStr(str, lengths - 1);
+//            System.out.println(str);
+//    };
 
 /* 4. Дано два числа, например 3 и 56, необходимо составить следующие строки:
 3 + 56 = 59
@@ -52,7 +62,30 @@ public class dz2 {
 3 * 56 = 168
 Используем метод StringBuilder.append().*/
     static void strComposition(){
-
+        StringBuilder str = new StringBuilder();
+        Scanner scanS = new Scanner(System.in);
+        System.out.println("\nВведите два целых числа: ");
+        int userNum1 = scanS.nextInt();
+        int userNum2 = scanS.nextInt();
+        int result = 0;
+        System.out.println("Введите одну из операций:  * , / , + , - .");
+        String sign = scanS.next();
+        if (sign.equals("/") & userNum2 == 0){
+            System.out.println("Ошибка: на ноль делить нельзя!");
+            System.exit(0);
+        } else if (sign.equals("*")){
+            result = userNum1 * userNum2;
+        } else if (sign.equals("/")) {
+            result = userNum1 / userNum2;
+        } else if (sign.equals("+")){
+            result = userNum1 + userNum2;
+        } else if (sign.equals("-")){
+            result = userNum1 - userNum2;
+        } else {
+            System.out.println("Ошибка: ввести можно одну из предложенных операций:  * , / , + , - .");
+        }
+        str.append(userNum1 + " ").append(sign).append(" " + userNum2).append(" = ").append(result);
+        System.out.println("Составленное выражение его результат: " + str);
     };
 
 /* 5. Замените символ “=” на слово “равно”.
