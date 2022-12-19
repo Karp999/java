@@ -2,6 +2,7 @@ package sem3;
 import java.util.ArrayList;
 import java.util.ListIterator;
 import java.util.Collections;
+import java.util.LinkedList;
 
 public class dz3 {
     public static void main(String[] args) {
@@ -74,20 +75,36 @@ public class dz3 {
         Collections.sort(flowers); // сортируется по алфавиту
         System.out.println("После сортировки:"+flowers);
 
-
-
-
-    }
-
-
-
-
-
-
-//10. *Сортировка списка.
 //11. *Сравнить время работы тысячи повторений пункта 3 для ArrayList и LinkedList.
+        System.out.println("\n10.Сравнение времени выполнения операции для ArrayList и LinkedList: ");
 
+        System.out.println("\nArrayList(): ");
+        ArrayList<String> flowersAL = new ArrayList<String>();
+        long start = System.currentTimeMillis();
+        System.out.println("Добавление 1000 элементов \"aster\": ");
+        for (int i = 0; i < 1000; i++) { flowersAL.add("aster");}
+        System.out.println(flowersAL);
+        long end = System.currentTimeMillis();
+        long res1 = end - start;
+        System.out.println("Время выполнения добавления тысячи элементов \"aster\" для ArrayList: " + res1);
 
+        System.out.println("\nLinkedList(): ");
+        LinkedList<String> flowersLL = new LinkedList<String>();
+        start = System.currentTimeMillis();
+        System.out.println("Добавление 1000 элементов \"aster\": ");
+        for (int i = 0; i < 1000; i++) { flowersLL.add("aster");}
+        System.out.println(flowersLL);
+        end = System.currentTimeMillis();
+        long res2 = end - start;
+        System.out.println("Время выполнения добавления тысячи элементов \"aster\" для ArrayList: " + res2);
+        /* У меня вышло в IDEA:
+        ArrayList(): 2
+        LinkedList(): 1
+        В IDEA у меня выводит список одной строкой, и я не уверена, что он формирует 1000 элементов (в отличие от VS Code)
 
-
+        В VS Code:
+        ArrayList(): 10
+        LinkedList(): 9
+        */
+    }
 }
