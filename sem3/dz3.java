@@ -1,6 +1,8 @@
 package sem3;
 import java.util.ArrayList;
 import java.util.ListIterator;
+import java.util.Collections;
+
 public class dz3 {
     public static void main(String[] args) {
 
@@ -65,6 +67,16 @@ public class dz3 {
         System.out.println("\n9.Удаление из старого списка элементов, отсутствующих во новом списке: ");
         flowers.retainAll(flowersNew);
         System.out.println(flowers);//вывод оставшихся позиций
+
+//10. *Сортировка списка.
+        System.out.println("\n10.Сортировка списка: ");
+        System.out.println("До сортировки: "+ flowers);
+        Collections.sort(flowers); // сортируется по алфавиту
+        System.out.println("После сортировки:"+flowers);
+
+
+
+
     }
 
 
