@@ -39,12 +39,27 @@ public class dz3 {
         flowers.set(0,"aster!");
         System.out.println(flowers.get(0));
 
+//6. Удалить третий элемент из списка.
+        System.out.println("\n6.Удаление элемента №3: "); //это "lilac" - индекс 2
+        System.out.println("Список до удаления: ");
+        System.out.println(flowers);
+        System.out.println("Список после удаления: ");
+        flowers.remove(2); //
+        System.out.println(flowers);
 
+//7. Поиска элемента в списке по строке.
+        System.out.println("\n7.Поиск элемента: ");
+        //пример для false через contains() и пример поиска индекса элемента indexOf()
+        System.out.println(flowers.contains("lilac!"));
+        System.out.println(flowers.indexOf("lilac!"));
+        //пример для true через contains() и пример поиска индекса элемента indexOf()
+        System.out.println(flowers.contains("forget-me-not!")); //пример для true
+        System.out.println(flowers.indexOf("forget-me-not!"));
     }
 
 
-//6. Удалить третий элемент из списка.
-//7. Поиска элемента в списке по строке.
+
+
 //8. Создать новый список и добавить в него несколько элементов первого списка.
 //9. Удалить из первого списка все элементы отсутствующие во втором списке.
 //10. *Сортировка списка.
