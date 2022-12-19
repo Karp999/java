@@ -55,13 +55,23 @@ public class dz3 {
         //пример для true через contains() и пример поиска индекса элемента indexOf()
         System.out.println(flowers.contains("forget-me-not!")); //пример для true
         System.out.println(flowers.indexOf("forget-me-not!"));
+
+//8. Создать новый список и добавить в него несколько элементов первого списка.
+        System.out.println("\n8.Новый список с добавлением нескольких элементов старого: ");
+        ArrayList<String> flowersNew= new ArrayList<String>(flowers.subList(2, 6));
+        System.out.println(flowersNew);
+
+//9. Удалить из первого списка все элементы отсутствующие во втором списке.
+        System.out.println("\n9.Удаление из старого списка элементов, отсутствующих во новом списке: ");
+        flowers.retainAll(flowersNew);
+        System.out.println(flowers);//вывод оставшихся позиций
     }
 
 
 
 
-//8. Создать новый список и добавить в него несколько элементов первого списка.
-//9. Удалить из первого списка все элементы отсутствующие во втором списке.
+
+
 //10. *Сортировка списка.
 //11. *Сравнить время работы тысячи повторений пункта 3 для ArrayList и LinkedList.
 
