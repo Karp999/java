@@ -31,7 +31,7 @@ public class dz4 {
         linkedlist.forEach(i -> System.out.println(" ФИО: "+ listSurname.get(i) + " " + listName.get(i) + " " + listPatronymic.get(i)+ " , пол: " + listGender.get(i) + " , возраст: " + listAge.get(i)));
 
         Scanner scan = new Scanner(System.in);
-        System.out.println("\nВыберите способ обработки списка пользователей:\n "+ "\n1 - сортировка по гендерному признаку, " + "\n2 - сортировка по возрасту," + "\n3 - сортировка по первой букве фамилии,"+ "\n0 - выход из программы");
+        System.out.println("\nВыберите способ обработки списка пользователей:\n "+ "\n1 - сортировка по гендерному признаку, " + "\n2 - сортировка по возрасту," + "\n3 - сортировка по первой букве фамилии,"+ "\n4 - сортировка по двум параметрам,"+"\n5 - сортировка по трём параметрам,"+ "\n0 - выход из программы");
         int numb = scan.nextInt();
         switch (numb) {
             case (1):
@@ -41,6 +41,17 @@ public class dz4 {
                 sortAge();
                 break;
             case (3):
+                firstLetterOfSurname();
+                break;
+// 3. *Добавить возможность одновременной сортировки по двум параметрам.
+            case (4): //добавила сортировку по возрасту и полу
+                sortGender();
+                sortAge();
+                break;
+// 4. **Добавить возможность одновременной сортировки по трём параметрам.
+            case (5):
+                sortGender();
+                sortAge();
                 firstLetterOfSurname();
                 break;
             case (0):
@@ -104,32 +115,20 @@ public class dz4 {
 
     static void firstLetterOfSurname(){ //сортировка по первой букве фамилии
         System.out.println("\nСортировка пользователей по первой букве фамилии: ");
-//
-//        while (positionLink > -1) {
-//
-//            for (int i = 0; i < positionLink; i++) {
-//                if (listSurname.get(linkedlist.get(i))) {
-//                    int tmpGender = linkedlist.get(i);
-//                    linkedlist.remove(i);
-//                    linkedlist.add(0, tmpGender);
-//                }
-//            }
-//        int tempVar = linkedlist.get(positionLink);
-//        linkedlist.set(positionLink, linkedlist.get(index));
-//        linkedlist.set(index, tempVar);
-//        positionLink--;
 //        int positionLink = linkedlist.size()-1;
 //        while (positionLink > -1) {
 //            for (int i = 0; i < positionLink; i++) {
 //                String userSurName = listSurname.get(linkedlist.get(positionLink);
-//                Collections.sort(userSurName);
-        Collections.sort(linkedlist);
-        System.out.println(linkedlist + "\n"); //отображение по номерам ссылок, а ниже отображение самих списков в последовательности этих номеров:
-        linkedlist.forEach(i -> System.out.println(" ФИО: "+ listSurname.get(i) + " " + listName.get(i) + " " + listPatronymic.get(i)+ " , пол: " + listGender.get(i) + " , возраст: " + listAge.get(i)));
+//                Collections.sort(userSurName); }
+        for (int i = 0; i < linkedlist.size(); i++) { //сортирует по фамилии, а остальные позиции не переставляет, не понимаю, как скомпоновать
+            Collections.sort(listSurname);
+            System.out.println(" ФИО: "+ listSurname.get(i) + " " + listName.get(i) + " " + listPatronymic.get(i)+ " , пол: " + listGender.get(i) + " , возраст: " + listAge.get(i));
+        }
+//        int tempVar = linkedlist.get(positionLink);
+//        linkedlist.set(positionLink, linkedlist.get(index));
+//        linkedlist.set(index, tempVar);
+//        positionLink--;
+
     }
 
-// 3. *Добавить возможность одновременной сортировки по двум параметрам.
-// 4. **Добавить возможность одновременной сортировки по трём параметрам.
-
 }
-
