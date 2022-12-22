@@ -79,21 +79,24 @@ public class dz4 {
 
 
     static void sortAge(){ //сортировка пользователей по возрасту
-            int cnt = linkedlist.size() - 1;
-            while (cnt > -1) {
-                int max_age = listAge.get(linkedlist.get(cnt));
-                int index = cnt;
-                for (int i = 0; i < cnt; i++) {
-                    if (max_age < listAge.get(linkedlist.get(i))) {
-                        max_age = listAge.get(linkedlist.get(i));
+        System.out.println("\nСортировка пользователей по возрасту: ");
+            int positionLink = linkedlist.size() - 1;
+            while (positionLink > -1) {
+                int maxAge = listAge.get(linkedlist.get(positionLink));
+                int index = positionLink;
+                for (int i = 0; i < positionLink; i++) {
+                    if (maxAge < listAge.get(linkedlist.get(i))) {
+                        maxAge = listAge.get(linkedlist.get(i));
                         index = i;
                     }
                 }
-                int tmp = linkedlist.get(cnt);
-                linkedlist.set(cnt, linkedlist.get(index));
-                linkedlist.set(index, tmp);
-                cnt--;
+                int tempVar = linkedlist.get(positionLink);
+                linkedlist.set(positionLink, linkedlist.get(index));
+                linkedlist.set(index, tempVar);
+                positionLink--;
             }
+        System.out.println(linkedlist + "\n"); //отображение по номерам ссылок, а ниже отображение самих списков в последовательности этих номеров:
+        linkedlist.forEach(i -> System.out.println(" ФИО: "+ listSurname.get(i) + " " + listName.get(i) + " " + listPatronymic.get(i)+ " , пол: " + listGender.get(i) + " , возраст: " + listAge.get(i)));
     }
 
     static void firstLetterOfSurname(int key){ //сортировка пользователей первой букве фамилии
