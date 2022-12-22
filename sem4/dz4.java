@@ -1,9 +1,11 @@
 package sem4;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
+
 public class dz4 {
 
 // 1. Написать приложение для ввода ФИО, возраста и пола пользователей. Данные хранить в разных списках.
@@ -15,15 +17,16 @@ public class dz4 {
     static List<Integer> linkedlist = new LinkedList<>();
     public static void main(String[] args) {
 
+        addition("Глазова Светлана Ивановна", "ж", 55);
+        addition("Пушкина Анастасия Ильинична", "ж", 26);
         addition("Абрамов Абрам Александрович", "м", 46);
+        addition("Даниленко Веселина Владиславовна", "ж", 12);
         addition("Абрамова Софья Ивановна", "ж", 50);
         addition("Бунин Сергей Викторович", "м", 32);
-        addition("Бунина Анастасия Ивановна", "ж", 29);
         addition("Глазов Вячеслав Александрович", "м", 30);
-        addition("Глазова Светлана Ивановна", "ж", 55);
         addition("Даниленко Артём Викторович", "м", 18);
-        addition("Даниленко Веселина Владиславовна", "ж", 12);
-        addition("Пушкина Анастасия Ильинична", "ж", 26);
+        addition("Бунина Анастасия Ивановна", "ж", 29);
+
         System.out.println("\nСписок пользователей: \n");
         linkedlist.forEach(i -> System.out.println(" ФИО: "+ listSurname.get(i) + " " + listName.get(i) + " " + listPatronymic.get(i)+ " , пол: " + listGender.get(i) + " , возраст: " + listAge.get(i)));
 
@@ -38,7 +41,7 @@ public class dz4 {
                 sortAge();
                 break;
             case (3):
-                firstLetterOfSurname(0);
+                firstLetterOfSurname();
                 break;
             case (0):
                 break;
@@ -99,40 +102,34 @@ public class dz4 {
         linkedlist.forEach(i -> System.out.println(" ФИО: "+ listSurname.get(i) + " " + listName.get(i) + " " + listPatronymic.get(i)+ " , пол: " + listGender.get(i) + " , возраст: " + listAge.get(i)));
     }
 
-    static void firstLetterOfSurname(int key){ //сортировка пользователей первой букве фамилии
-        int cnt = linkedlist.size()-1;
-        while (cnt > -1) {
-            String LName = listSurname.get(linkedlist.get(cnt));
-            Boolean MaleOrFemale = listGender.get(linkedlist.get(cnt));
-            int varAge = listAge.get(linkedlist.get(cnt));
-            int index = cnt;
-            if (key == 0){
-                for (int i = 0; i < cnt; i++){
-                    if (LName.compareToIgnoreCase(listSurname.get(linkedlist.get(i))) < 0){
-                        LName = listSurname.get(linkedlist.get(i));
-                        index = i;
-                    }
-                }
-            }
-            else if (key == 1){
-                for (int i = 0; i < cnt; i++){
-                    if (LName.compareToIgnoreCase(listSurname.get(linkedlist.get(i))) < 0
-                            && MaleOrFemale.equals(listGender.get(linkedlist.get(i)))
-                            && varAge == listAge.get(linkedlist.get(i))){
-                        LName = listSurname.get(linkedlist.get(i));
-                        index = i;
-                    }
-                }
-            }
-            int tmp = linkedlist.get(cnt);
-            linkedlist.set(cnt, linkedlist.get(index));
-            linkedlist.set(index, tmp);
-            cnt--;
-
+    static void firstLetterOfSurname(){ //сортировка по первой букве фамилии
+        System.out.println("\nСортировка пользователей по первой букве фамилии: ");
+//
+//        while (positionLink > -1) {
+//
+//            for (int i = 0; i < positionLink; i++) {
+//                if (listSurname.get(linkedlist.get(i))) {
+//                    int tmpGender = linkedlist.get(i);
+//                    linkedlist.remove(i);
+//                    linkedlist.add(0, tmpGender);
+//                }
+//            }
+//        int tempVar = linkedlist.get(positionLink);
+//        linkedlist.set(positionLink, linkedlist.get(index));
+//        linkedlist.set(index, tempVar);
+//        positionLink--;
+//        int positionLink = linkedlist.size()-1;
+//        while (positionLink > -1) {
+//            for (int i = 0; i < positionLink; i++) {
+//                String userSurName = listSurname.get(linkedlist.get(positionLink);
+//                Collections.sort(userSurName);
+        Collections.sort(linkedlist);
+        System.out.println(linkedlist + "\n"); //отображение по номерам ссылок, а ниже отображение самих списков в последовательности этих номеров:
+        linkedlist.forEach(i -> System.out.println(" ФИО: "+ listSurname.get(i) + " " + listName.get(i) + " " + listPatronymic.get(i)+ " , пол: " + listGender.get(i) + " , возраст: " + listAge.get(i)));
     }
 
 // 3. *Добавить возможность одновременной сортировки по двум параметрам.
 // 4. **Добавить возможность одновременной сортировки по трём параметрам.
 
 }
-}
+
